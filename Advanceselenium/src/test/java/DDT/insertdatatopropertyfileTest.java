@@ -3,9 +3,11 @@ package DDT;
 import java.io.FileOutputStream;
 import java.util.Properties;
 
-public class insertdatatopropertyfile {
+import org.testng.annotations.Test;
 
-	public static void main(String[] args) throws Throwable {
+public class insertdatatopropertyfileTest {
+    @Test
+	public static void main() throws Throwable {
 		
 	       
 		Properties p=new Properties();

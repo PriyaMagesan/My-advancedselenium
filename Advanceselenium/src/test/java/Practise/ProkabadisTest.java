@@ -7,10 +7,11 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.Test;
 
-public class Prokabadis {
-
-		public static void main(String[] args) throws Throwable {
+public class ProkabadisTest {
+         @Test
+		public static void main() throws Throwable {
 			String[] str=new String[6];
 			WebDriver driver=new ChromeDriver();
 			driver.get("https://www.prokabaddi.com/");

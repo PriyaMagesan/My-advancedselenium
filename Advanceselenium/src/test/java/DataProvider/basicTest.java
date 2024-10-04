@@ -3,7 +3,7 @@ package DataProvider;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-public class basic {
+public class basicTest {
 	//Data provider is used to run the same script with different type of data
 		
 		

@@ -23,7 +23,8 @@ public class Webdriver_Utilities {
 	public void Actionsmethod(WebDriver driver,WebElement element)
 	{
 		Actions act=new Actions(driver);
-		act.moveToElement(element);
+		act.moveToElement(element).click().perform();
+		
 	}
 	
 

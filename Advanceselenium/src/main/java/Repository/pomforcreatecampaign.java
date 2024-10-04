@@ -10,36 +10,64 @@ public class pomforcreatecampaign {
 	 WebDriver driver;
 
 		public pomforcreatecampaign(WebDriver driver) {
-			PageFactory
-			.initElements(driver,this);
+			PageFactory.initElements(driver,this);
 		}
 		
-		@FindBy(name="user_name")
-		private WebElement usertextfield;
 		
-		@FindBy(name="user_password")
-		private WebElement passwordtextfield;
 		
-		@FindBy(id="submitButton")
-		private WebElement submitbutton;
+		@FindBy(linkText = "Campaigns")
+		private WebElement campaignoption;
 		
-		public WebElement getUsertextfield() {
-			return usertextfield;
-		}
-
-		public WebElement getPasswordtextfield() {
-			return passwordtextfield;
-		}
-
-		public WebElement getSubmitbutton() {
-			return submitbutton;
+		@FindBy(xpath="//input[@name='campaignname']")
+		private WebElement campaignTF;
+		
+		@FindBy(xpath="//img[@title='Select']")
+		private WebElement productplusicon;
+		
+		@FindBy(xpath="//img[@src='themes/softed/images/btnL3Add.gif']")
+		private WebElement campaignplusicon;
+		
+		
+		public WebElement getProductplusicon() {
+			return productplusicon;
 		}
 
-	    public void logintoapplication(String username,String password)
+		public WebDriver getDriver() {
+			return driver;
+		}
+		
+		public WebElement getCampaignoption() {
+			return campaignoption;
+		}
+		
+		public WebElement getCampaignTF() {
+			return campaignTF;
+		}
+		
+		public WebElement getCampaignplusicon() {
+			return campaignplusicon;
+		}
+
+		
+	    public void clickcampaignoption()
 	    {
-	    	usertextfield.sendKeys(username);
-	    	passwordtextfield.sendKeys(password);
-	    	submitbutton.click();
+	    	campaignoption.click();
 	    }
+	    
+	    public void campaignTF(String campaignname)
+	    {
+	    	campaignTF.sendKeys(campaignname);
+	    }
+	    
+	    public void productplusicon()
+	    {
+	    	productplusicon.click();
+	    }
+	    
+
+		public void clickcampaignplusicon() {
+			campaignplusicon.click();
+			
+		}
 
 }

@@ -13,7 +13,7 @@ import Genericutilities.File_Utilities;
 import Genericutilities.Java_utilities;
 import Genericutilities.Webdriver_Utilities;
 
-public class Createorganization {	
+public class CreateorganizationTest {	
 	
 	
 @Test	

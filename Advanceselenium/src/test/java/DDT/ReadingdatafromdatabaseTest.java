@@ -6,10 +6,13 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import org.testng.annotations.Test;
+
 import com.mysql.jdbc.Driver;
 
-public class Readingdatafromdatabase {
-public static void main(String[] args) throws SQLException {
+public class ReadingdatafromdatabaseTest {
+	@Test
+public static void main() throws SQLException {
         
 		// step1:register/ load the driver
 		Driver driver = new Driver();

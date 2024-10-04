@@ -7,10 +7,11 @@ import org.apache.poi.EncryptedDocumentException;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
+import org.testng.annotations.Test;
 
-public class Readmultipledata {
-	
-	public static void main(String[] args) throws EncryptedDocumentException, IOException {
+public class ReadmultipledataTest {
+	//@Test
+	public static void main() throws EncryptedDocumentException, IOException {
 
 		FileInputStream file=new FileInputStream("./src/test/resources/excelReading.xlsx");
 		

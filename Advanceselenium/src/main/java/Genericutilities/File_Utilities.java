@@ -13,9 +13,8 @@ public class File_Utilities {
 	 String value = pro.getProperty(key);
 	 System.out.println(value);
 	 return value;
-	}
-
-    
+	 
+	}    
 }
 
 

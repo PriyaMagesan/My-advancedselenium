@@ -9,18 +9,20 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
+import org.testng.annotations.Test;
 
-public class Excelreading {
-public static void main(String[] args) throws EncryptedDocumentException, IOException {
+public class ExcelreadingTest {
+@Test
+public static void main() throws EncryptedDocumentException, IOException {
 		
 		///step1:- Path Representation
-		FileInputStream m=new FileInputStream("./src/test/resources/excelReading.xlsx");
+		FileInputStream m=new FileInputStream("./src\\test\\resources\\VtigerDatas.xlsx");
 		
 		///step2:-keeping the excel file in read mode
 		Workbook book=WorkbookFactory.create(m);
 		
 		//step3:- get the control the Sheet-1
-		Sheet sheet = book.getSheet("Sheet1");
+		Sheet sheet = book.getSheet("Organization");
 		
 //		//step4:- get the control the Row
 //		Row row = sheet.getRow(1);
@@ -42,7 +44,7 @@ public static void main(String[] args) throws EncryptedDocumentException, IOExce
 		Row row1 = sheet.createRow(1);
 		Cell cell1 = row1.createCell(6);
 		cell1.setCellValue("mani");
-		FileOutputStream n=new FileOutputStream("./src/test/resources/excelReading.xlsx");
+		FileOutputStream n=new FileOutputStream("./src\\test\\resources\\VtigerDatas.xlsx");
 		book.write(n);
 		book.close();
 		

@@ -1,6 +1,5 @@
 package Organization;
 
-import org.testng.annotations.Test;
 import java.io.FileInputStream;
 import java.util.Iterator;
 import java.util.Properties;
@@ -12,20 +11,17 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.interactions.Actions;
-import org.testng.annotations.Test;
-
 import Genericutilities.Excel_Utilities;
 import Genericutilities.Webdriver_Utilities;
 import Repository.pomforcreatecampaign;
+import Repository.pomforloginpage;
 
-public class Createcampaign {
-     @Test
+public class CreatecampaignTest {
+    // @Test
 	public  void main() throws Throwable {
 			WebDriver driver = new ChromeDriver();
 
-			FileInputStream fin = new FileInputStream(
-					"C:\\Users\\priya\\OneDrive\\Desktop\\Advanced Selenium\\logindata4vtiger.properties.txt");
+			FileInputStream fin = new FileInputStream("C:\\Users\\priya\\OneDrive\\Desktop\\Advanced Selenium\\logindata4vtiger.properties.txt");
 
 			Properties p = new Properties();
 			p.load(fin);
@@ -37,7 +33,7 @@ public class Createcampaign {
 			driver.get(URL);
 
 			// getting a username and password
-			pomforcreatecampaign pom = new pomforcreatecampaign(driver);
+			pomforloginpage pom = new pomforloginpage(driver);
 			Thread.sleep(2000);
 			pom.logintoapplication(UserName, Password);
 
@@ -46,8 +42,7 @@ public class Createcampaign {
 			webutils.implicitwait(driver);
 			webutils.MaximizeWindow(driver);
 
-			FileInputStream finput = new FileInputStream(
-					"C:\\Users\\\\priya\\\\OneDrive\\\\Desktop\\\\Advanced Selenium\\\\VtigerDatas.xlsx");
+			FileInputStream finput = new FileInputStream("C:\\Users\\\\priya\\\\OneDrive\\\\Desktop\\\\Advanced Selenium\\\\VtigerDatas.xlsx");
 			Workbook book = WorkbookFactory.create(finput);
 			
 			
@@ -65,8 +60,7 @@ public class Createcampaign {
 
 			// go to more option
 			WebElement movetomore = driver.findElement(By.xpath("//a[text()='More']"));
-			Actions act = new Actions(driver);
-			act.moveToElement(movetomore).click().perform();
+			webutils.Actionsmethod(driver, movetomore);
 			Thread.sleep(2000);
 			driver.findElement(By.xpath("//a[text()='Campaigns']")).click();
 

@@ -12,7 +12,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import Genericutilities.Excel_Utilities;
 import Genericutilities.Java_utilities;
 
-public class Contactandwindowhandling {
+public class ContactandwindowhandlingTest {
 
 	public static void main(String[] args) throws Throwable {
 		

@@ -2,9 +2,11 @@ package Practise;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.Test;
 
-public class Traversing {
-public static void main(String[] args) throws InterruptedException {
+public class TraversingTest {
+	@Test
+public static void main() throws InterruptedException {
 
 		
 		WebDriver driver=new ChromeDriver();

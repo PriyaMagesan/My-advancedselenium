@@ -1,4 +1,4 @@
 URL http://localhost:8888
-browser CHROME
+browser edge
 Username admin
 Password admin

@@ -13,7 +13,7 @@ import org.testng.annotations.Test;
 
 import Genericutilities.Excel_Utilities;
 
-public class Createproduct {
+public class Createproductest {
 
 	@Test
 		public static void main() throws Throwable {
@@ -40,8 +40,6 @@ public class Createproduct {
 			driver.findElement(By.xpath("//a[@href='index.php?module=Products&action=index']")).click(); //click product
 			driver.findElement(By.xpath("//img[@src='themes/softed/images/btnL3Add.gif']")).click();//click plus symbol
 			
-		
-
 			Excel_Utilities excelutils=new Excel_Utilities();
 			String newproductname=excelutils.getproductname("Organization",3,1);
 	         System.out.println(newproductname);
