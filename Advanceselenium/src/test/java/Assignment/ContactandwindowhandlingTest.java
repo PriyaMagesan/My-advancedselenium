@@ -8,13 +8,15 @@ import java.util.Set;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.Test;
 
-import Genericutilities.Excel_Utilities;
-import Genericutilities.Java_utilities;
+import Generic_utilities.*;
+
 
 public class ContactandwindowhandlingTest {
-
-	public static void main(String[] args) throws Throwable {
+	
+     @Test
+	public  void main() throws Throwable {
 		
 		WebDriver driver = new ChromeDriver();
 		driver.manage().window().maximize();
