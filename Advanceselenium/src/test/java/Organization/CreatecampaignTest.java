@@ -11,13 +11,14 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import Genericutilities.Excel_Utilities;
-import Genericutilities.Webdriver_Utilities;
+import org.testng.annotations.Test;
+
+import Generic_utilities.*;
 import Repository.pomforcreatecampaign;
 import Repository.pomforloginpage;
 
 public class CreatecampaignTest {
-    // @Test
+     @Test
 	public  void main() throws Throwable {
 			WebDriver driver = new ChromeDriver();
 
@@ -88,10 +89,10 @@ public class CreatecampaignTest {
 					break;
 				}	
 			}
-			
+			 Thread.sleep(2000);
 			driver.findElement(By.id("search_txt")).sendKeys(productname); //pass a product
 			driver.findElement(By.xpath("//input[@type='button']")).click(); //search now
-			Thread.sleep(1000);
+		    Thread.sleep(2000);
 			JavascriptExecutor js=(JavascriptExecutor)driver;
 			try {
 				driver.findElement(By.xpath("//a[text()='"+productname+"']")).click();

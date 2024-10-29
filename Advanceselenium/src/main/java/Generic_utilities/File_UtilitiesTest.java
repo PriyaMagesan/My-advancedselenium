@@ -1,9 +1,9 @@
-package Genericutilities;
+package Generic_utilities;
 
 import java.io.FileInputStream;
 import java.util.Properties;
 
-public class File_Utilities {
+public class File_UtilitiesTest {
 	
 	public String getKeyAndValueData(String key) throws Throwable
 	{

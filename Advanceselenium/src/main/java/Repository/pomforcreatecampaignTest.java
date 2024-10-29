@@ -5,11 +5,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class pomforcreatecampaign {
+public class pomforcreatecampaignTest {
 	
 	 WebDriver driver;
 
-		public pomforcreatecampaign(WebDriver driver) {
+		public pomforcreatecampaignTest(WebDriver driver) {
 			PageFactory.initElements(driver,this);
 		}
 		

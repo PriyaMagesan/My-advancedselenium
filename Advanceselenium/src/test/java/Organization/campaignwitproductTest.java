@@ -8,9 +8,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
-import Genericutilities.Excel_Utilities;
-import Genericutilities.File_Utilities;
-import Genericutilities.Webdriver_Utilities;
+
+import Generic_utilities.*;
 import Repository.PomforHome_Page;
 import Repository.pomforcreatecampaign;
 import Repository.pomforcreateproduct;
@@ -19,7 +18,7 @@ import Repository.pomforloginpage;
 public class campaignwitproductTest {
 
 	@Test
-	public static void main() throws Throwable {
+	public  void main() throws Throwable  {
 		
 		WebDriver driver=new ChromeDriver();
 		Webdriver_Utilities webutils=new Webdriver_Utilities();
@@ -74,10 +73,15 @@ public class campaignwitproductTest {
 			}
 		}
 		
-		//driver.findElement(By.xpath("//input[@name='search_text']")).sendKeys("newproductname");
 		product.clickproductplusicon(newproductname);
 		driver.findElement(By.name("search")).click();
+		Thread.sleep(2000);
 		driver.findElement(By.xpath("//a[text()='"+newproductname+"']")).click();
+		
+		//driver.findElement(By.xpath("//input[@name='search_text']")).sendKeys("newproductname");
+		//product.clickproductplusicon(newproductname);
+		//driver.findElement(By.name("search")).click();
+		
 		
 		
       Set<String> windowHandles1 = driver.getWindowHandles();
@@ -96,6 +100,7 @@ public class campaignwitproductTest {
 		}
 		
 		
+		
 		driver.findElement(By.xpath("(//input[@title='Save [Alt+S]'])[1]")).click();
 		Thread.sleep(3000);
 		System.out.println("Successfully created a campaign with product");
@@ -109,6 +114,10 @@ public class campaignwitproductTest {
 		Thread.sleep(2000);
 		System.out.println("loggedout successfully");
 		driver.quit();
+		
+		//logout
+//		driver.findElement(By.cssSelector("[src='themes/softed/images/user.PNG']")).click();
+//		driver.findElement(By.cssSelector("[href='index.php?module=Users&action=Logout']")).click();
 	}
 
 }

@@ -1,23 +1,19 @@
 package Organization;
 
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
-import org.testng.annotations.Test;
+import Generic_utilities.*;
 
-import Genericutilities.Excel_Utilities;
-import Genericutilities.File_Utilities;
-import Genericutilities.Java_utilities;
-import Genericutilities.Webdriver_Utilities;
-
+@Listeners(Generic_utilities.extentreport.class)
 public class CreateorganizationTest {	
 	
-	
-@Test	
-public static void main() throws Throwable {
+@Test
+public  void main() throws Throwable {
 		
 		Webdriver_Utilities webutils=new Webdriver_Utilities();
 		File_Utilities fileutils=new File_Utilities();

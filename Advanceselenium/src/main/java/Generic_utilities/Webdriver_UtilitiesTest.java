@@ -1,4 +1,4 @@
-package Genericutilities;
+package Generic_utilities;
 
 import java.time.Duration;
 
@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
-public class Webdriver_Utilities {
+public class Webdriver_UtilitiesTest {
 
 	
 	public void  MaximizeWindow(WebDriver driver)

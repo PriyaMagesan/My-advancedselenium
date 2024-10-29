@@ -1,4 +1,4 @@
-package Genericutilities;
+package Generic_utilities;
 
 import java.io.FileInputStream;
 import java.util.Random;
@@ -10,16 +10,13 @@ import org.apache.poi.ss.usermodel.WorkbookFactory;
 
 
 
-public class Excel_Utilities {
+public class Excel_UtilitiesTest {
 	
 	Random ran = new Random();
 	int randNum = ran.nextInt(1000);
 	
 	
-	 
-	 public Excel_Utilities() throws Throwable {
-		// finput=new FileInputStream("C:\\Users\\priya\\OneDrive\\Desktop\\Advanced Selenium\\VtigerDatas.xlsx");
-	}
+	
 	
 	public String getorganizationname(String sheetname,int rownum,int cellnum) throws Throwable
 	{	

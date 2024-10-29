@@ -11,7 +11,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
 
-import Genericutilities.Excel_Utilities;
+import Generic_utilities.*;
 
 public class Createproductest {
 
