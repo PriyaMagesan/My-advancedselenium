@@ -6,9 +6,9 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 
-public class pomforloginpageTest {
+public class pomforloginpage{
 	
-	 public pomforloginpageTest(WebDriver driver)
+	 public pomforloginpage(WebDriver driver)
      {
     	 PageFactory.initElements(driver,this);
      }

@@ -5,8 +5,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class pomforcreateproductTest {
-	public pomforcreateproductTest(WebDriver driver) {
+public class pomforcreateproduct {
+	public pomforcreateproduct(WebDriver driver) {
 
 		PageFactory.initElements(driver, this);
 

@@ -5,8 +5,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class PomforHome_PageTest {
-	public PomforHome_PageTest(WebDriver driver) {
+public class PomforHome_Page{
+	public PomforHome_Page(WebDriver driver) {
 		PageFactory.initElements(driver, this);
 	}
 

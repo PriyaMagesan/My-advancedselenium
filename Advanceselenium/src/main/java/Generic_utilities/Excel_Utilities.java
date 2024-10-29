@@ -10,7 +10,7 @@ import org.apache.poi.ss.usermodel.WorkbookFactory;
 
 
 
-public class Excel_UtilitiesTest {
+public class Excel_Utilities {
 	
 	Random ran = new Random();
 	int randNum = ran.nextInt(1000);

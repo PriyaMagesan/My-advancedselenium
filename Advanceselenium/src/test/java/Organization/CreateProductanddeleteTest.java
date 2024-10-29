@@ -1,16 +1,12 @@
 package Organization;
 
 import java.util.List;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.testng.annotations.Test;
+import Generic_utilities.*;
 
-import Genericutilities.Excel_Utilities;
-import Genericutilities.File_Utilities;
-import Genericutilities.Webdriver_Utilities;
+
 
 
 public class CreateProductanddeleteTest {
