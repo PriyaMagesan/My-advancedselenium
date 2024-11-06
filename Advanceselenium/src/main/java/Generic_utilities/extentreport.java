@@ -1,13 +1,8 @@
 package Generic_utilities;
-
-import org.testng.ITestContext;
-import org.testng.ITestListener;
-import org.testng.ITestResult;
-import org.testng.annotations.Listeners;
-import com.aventstack.extentreports.ExtentReports;
-import com.aventstack.extentreports.ExtentTest;
-import com.aventstack.extentreports.Status;
-import com.aventstack.extentreports.reporter.ExtentSparkReporter;
+import org.openqa.selenium.TakesScreenshot;
+import org.testng.*;
+import com.aventstack.extentreports.*;
+import com.aventstack.extentreports.reporter.*;
 import com.aventstack.extentreports.reporter.configuration.Theme;
 
 
@@ -25,17 +20,22 @@ public class extentreport implements ITestListener{
 	}
 
 	@Override
-	public void onTestSuccess(ITestResult result) {
+	public void onTestSuccess(ITestResult result) 
+	{
 		test.log(Status.PASS,result.getName());
-		test.log(Status.PASS, result.getThrowable());
-		
-		
+		test.log(Status.PASS, result.getThrowable()); //when we add assertion, we could know the exception caused by any mistakes
+			
 	}
 
 	@Override
 	public void onTestFailure(ITestResult result) {
 		test.log(Status.FAIL,result.getName());
 		test.log(Status.FAIL, result.getThrowable());
+		
+		TakesScreenshot ts=(TakesScreenshot)Base_class.Sdriver;
+		
+		
+		
 		
 	}
 
@@ -50,18 +50,20 @@ public class extentreport implements ITestListener{
 	@Override
 	public void onStart(ITestContext context) {
 		
+		//look wise of the report
 		ExtentSparkReporter spark=new ExtentSparkReporter("./extentreport/file");
 		spark.config().setTheme(Theme.DARK);
 		spark.config().setDocumentTitle("Vtiger");
 		spark.config().setReportName("Priya");
 		
+		//system configuration
 	    report=new ExtentReports();
 	    report.attachReporter(spark);
 	    report.setSystemInfo("Os version", "Window11");
 	    report.setSystemInfo("Executed By", "Priya");
 	    report.setSystemInfo("Reviewed By", "Joel D");
-	    
-	    
+	    report.setUsingNaturalConf(true);
+	       
 	
 	}
 	
@@ -69,6 +71,7 @@ public class extentreport implements ITestListener{
 	@Override
 	public void onFinish(ITestContext context) {
 		
+		//Flush method ---->it will erase the previous data on the report and create a new report
 		report.flush();
 		
 	}

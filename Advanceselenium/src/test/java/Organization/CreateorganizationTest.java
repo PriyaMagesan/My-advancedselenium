@@ -10,10 +10,12 @@ import org.openqa.selenium.edge.EdgeDriver;
 import Generic_utilities.*;
 
 @Listeners(Generic_utilities.extentreport.class)
-public class CreateorganizationTest {	
+public class CreateorganizationTest {
+	
+    public static WebDriver Sdriver;
 	
 @Test
-public  void main() throws Throwable {
+public  void orgcreation() throws Throwable {
 		
 		Webdriver_Utilities webutils=new Webdriver_Utilities();
 		File_Utilities fileutils=new File_Utilities();
@@ -40,6 +42,8 @@ public  void main() throws Throwable {
 		 {
 			  driver=new ChromeDriver();
 		 }
+		
+		Sdriver=driver;
 		
 		//here we using Webdriver_utilities
 		//Webdriver_utilities webutils=new Webdriver_utilities();
