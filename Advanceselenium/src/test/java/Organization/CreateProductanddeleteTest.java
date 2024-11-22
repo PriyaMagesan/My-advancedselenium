@@ -1,15 +1,18 @@
 package Organization;
 
+import org.testng.annotations.Test;
+import org.testng.annotations.Test;
 import java.util.List;
 import org.openqa.selenium.*;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
 import Generic_utilities.*;
 
 
 
 
-public class CreateProductanddeleteTest {
+public class CreateProductanddeleteTest extends Base_class{
    @Test
 	public static void main() throws Throwable {
 
@@ -41,12 +44,20 @@ public class CreateProductanddeleteTest {
 		driver.findElement(By.xpath("//a[text()='Products']")).click();
 		
 		JavascriptExecutor scroll=(JavascriptExecutor)driver;
-		scroll.executeScript("window.scrollBy(0,1000)");
+		scroll.executeScript("window.scrollBy(0,5000)");
 		
-         driver.findElement(By.xpath("(//img[@src='themes/images/next.gif'])[2]")).click(); //click next button to move the next page
-		
-		WebElement element = driver.findElement(By.xpath("//table[@class='lvt small']/tbody//td//a[text()='"+productname+"']/../preceding-sibling::td//input[@type='checkbox']"));
-		element.click();
+         WebElement element = driver.findElement(By.xpath("(//img[@src='themes/images/end.gif'])[2]")); //click next button to move the next page
+//        Point location = element.getLocation();
+//        System.out.println(location.getX());
+//        System.out.println(location.getY());
+//        
+        Actions act=new Actions(driver);
+        act.moveToElement(element, 1452, 840);
+        element.click();
+
+        Thread.sleep(2000);
+		WebElement element1 = driver.findElement(By.xpath("//table[@class='lvt small']/tbody//td//a[text()='"+productname+"']/../preceding-sibling::td//input[@type='checkbox']"));
+		element1.click();
 		
 		driver.findElement(By.xpath("//input[@value='Delete']")).click();
 		//handling alter for accept 
@@ -57,7 +68,7 @@ public class CreateProductanddeleteTest {
 		System.out.println(size);
 		for (WebElement allproducts : allproductlist) {
 			String allproductsname = allproducts.getText();
-			System.out.println(allproductsname);
+			
 			
 			if(productname.contains(allproductsname))
 			{
@@ -69,15 +80,15 @@ public class CreateProductanddeleteTest {
 			}
 			
 		}
-		//logout
-		Thread.sleep(3000);
-		WebElement element1 = driver.findElement(By.xpath("//img[@src='themes/softed/images/user.PNG']"));
-		element1.click();
-		Thread.sleep(500);
-		driver.findElement(By.xpath("//a[text()='Sign Out']")).click();
-
-		Thread.sleep(2000);
-		driver.quit();
+//		//logout
+//		Thread.sleep(3000);
+//		WebElement element1 = driver.findElement(By.xpath("//img[@src='themes/softed/images/user.PNG']"));
+//		element1.click();
+//		Thread.sleep(500);
+//		driver.findElement(By.xpath("//a[text()='Sign Out']")).click();
+//
+//		Thread.sleep(2000);
+//		driver.quit();
 
 		
 		

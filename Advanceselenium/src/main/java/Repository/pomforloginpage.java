@@ -13,11 +13,11 @@ public class pomforloginpage{
     	 PageFactory.initElements(driver,this);
      }
  
-	    @FindBy(name="user_name")
+	    @FindBy(xpath="//input[@name='user_name']")
 		private WebElement usertextfield;
 	
 
-		@FindBy(name="user_password")
+		@FindBy(xpath="//input[@name='user_password']")
 		private WebElement passwordtextfield;
 		
 		@FindBy(id="submitButton")

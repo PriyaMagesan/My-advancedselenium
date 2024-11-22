@@ -1,5 +1,7 @@
 package Organization;
 
+import org.testng.annotations.Test;
+import org.testng.annotations.Test;
 import java.util.Iterator;
 import java.util.Set;
 
@@ -15,24 +17,13 @@ import Repository.pomforcreatecampaign;
 import Repository.pomforcreateproduct;
 import Repository.pomforloginpage;
 
-public class campaignwitproductTest {
+public class campaignwitproductTest extends Base_class{
 
 	@Test
 	public  void main() throws Throwable  {
 		
-		WebDriver driver=new ChromeDriver();
 		Webdriver_Utilities webutils=new Webdriver_Utilities();
 		Excel_Utilities excel=new Excel_Utilities();
-		File_Utilities file=new File_Utilities();
-		webutils.MaximizeWindow(driver);
-		webutils.implicitwait(driver);
-		
-		String url=file.getKeyAndValueData("URL");
-		String Username=file.getKeyAndValueData("Username");
-		String Password=file.getKeyAndValueData("Password");
-		driver.get(url);
-		pomforloginpage createcampaign=new pomforloginpage(driver);
-		createcampaign.logintoapplication(Username, Password);
 		
 		//creating product
 		pomforcreateproduct product=new pomforcreateproduct(driver);
@@ -64,7 +55,6 @@ public class campaignwitproductTest {
 		while(iterator.hasNext())
 		{
 			String next = iterator.next();
-			//System.out.println(next);
 			driver.switchTo().window(next);
 			String currenttitle = driver.getTitle();
 			if(currenttitle.contains("Products&action"))
@@ -78,19 +68,13 @@ public class campaignwitproductTest {
 		Thread.sleep(2000);
 		driver.findElement(By.xpath("//a[text()='"+newproductname+"']")).click();
 		
-		//driver.findElement(By.xpath("//input[@name='search_text']")).sendKeys("newproductname");
-		//product.clickproductplusicon(newproductname);
-		//driver.findElement(By.name("search")).click();
-		
-		
-		
+			
       Set<String> windowHandles1 = driver.getWindowHandles();
 		
 		Iterator<String> iterator1 = windowHandles1.iterator();
 		while(iterator1.hasNext())
 		{
 			String next = iterator1.next();
-			System.out.println(next);
 			driver.switchTo().window(next);
 			String currenttitle = driver.getTitle();
 			if(currenttitle.contains("Campaigns&action"))
@@ -99,25 +83,27 @@ public class campaignwitproductTest {
 			}
 		}
 		
-		
+	
 		
 		driver.findElement(By.xpath("(//input[@title='Save [Alt+S]'])[1]")).click();
 		Thread.sleep(3000);
 		System.out.println("Successfully created a campaign with product");
 		
 		//logout
-		Thread.sleep(3000);
-		WebElement element1 = driver.findElement(By.xpath("//img[@src='themes/softed/images/user.PNG']"));
-		element1.click();
-		Thread.sleep(1000);
-		driver.findElement(By.xpath("//a[text()='Sign Out']")).click();
-		Thread.sleep(2000);
-		System.out.println("loggedout successfully");
-		driver.quit();
+//		Thread.sleep(3000);
+//		WebElement element1 = driver.findElement(By.xpath("//img[@src='themes/softed/images/user.PNG']"));
+//		element1.click();
+//		Thread.sleep(1000);
+//		driver.findElement(By.xpath("//a[text()='Sign Out']")).click();
+//		Thread.sleep(2000);
+//		System.out.println("loggedout successfully");
+//		driver.quit();
 		
 		//logout
+//		Thread.sleep(1000);
 //		driver.findElement(By.cssSelector("[src='themes/softed/images/user.PNG']")).click();
 //		driver.findElement(By.cssSelector("[href='index.php?module=Users&action=Logout']")).click();
+//		driver.quit();
 	}
 
 }

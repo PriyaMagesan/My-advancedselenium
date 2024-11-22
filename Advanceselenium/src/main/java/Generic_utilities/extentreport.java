@@ -1,40 +1,62 @@
 package Generic_utilities;
+
+import java.io.File;
+import java.io.IOException;
+
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
 import org.testng.*;
 import com.aventstack.extentreports.*;
 import com.aventstack.extentreports.reporter.*;
 import com.aventstack.extentreports.reporter.configuration.Theme;
 
 
-public class extentreport implements ITestListener{
+public class extentreport implements ITestListener
+{
 	
-	ExtentReports report;
-	ExtentTest test;
+	 ThreadLocal<ExtentTest> thread =new ThreadLocal<>();
+	 public static ExtentTest test;
+	 ExtentReports report;
+	 
 
 	@Override
 	public void onTestStart(ITestResult result) {
 		
-		test = report.createTest(result.getName());
-		 
-		
+          test=report.createTest(result.getName());
+          thread.set(test);
+		 	
 	}
 
 	@Override
 	public void onTestSuccess(ITestResult result) 
 	{
 		test.log(Status.PASS,result.getName());
-		test.log(Status.PASS, result.getThrowable()); //when we add assertion, we could know the exception caused by any mistakes
+		test.log(Status.PASS, result.getThrowable());   //when we add assertion, we could know the exception caused by any mistakes
 			
 	}
 
 	@Override
-	public void onTestFailure(ITestResult result) {
+	public void onTestFailure(ITestResult result)
+	{
 		test.log(Status.FAIL,result.getName());
-		test.log(Status.FAIL, result.getThrowable());
+		test.log(Status.FAIL,result.getThrowable());
 		
-		TakesScreenshot ts=(TakesScreenshot)Base_class.Sdriver;
+		WebDriver screenshotdriver = Base_class.thread.get();
 		
+		//String loc = "./Screenshot/"+result.getName()+".png";
+		TakesScreenshot ts=(TakesScreenshot)screenshotdriver;
+		File source = ts.getScreenshotAs(OutputType.FILE);
+		File dest=new File("./Screenshot/"+result.getName()+".png");
+		try {
+			FileUtils.copyFile(source,dest);
+		} catch (IOException e) {
+			e.printStackTrace();
+			
+		}
 		
+		test.addScreenCaptureFromPath(dest.getAbsolutePath());
 		
 		
 	}
@@ -48,7 +70,8 @@ public class extentreport implements ITestListener{
 	
 	
 	@Override
-	public void onStart(ITestContext context) {
+	public void onStart(ITestContext context) 
+	{
 		
 		//look wise of the report
 		ExtentSparkReporter spark=new ExtentSparkReporter("./extentreport/file");
@@ -57,7 +80,7 @@ public class extentreport implements ITestListener{
 		spark.config().setReportName("Priya");
 		
 		//system configuration
-	    report=new ExtentReports();
+		report=new ExtentReports();
 	    report.attachReporter(spark);
 	    report.setSystemInfo("Os version", "Window11");
 	    report.setSystemInfo("Executed By", "Priya");
@@ -69,7 +92,8 @@ public class extentreport implements ITestListener{
 	
 	
 	@Override
-	public void onFinish(ITestContext context) {
+	public void onFinish(ITestContext context) 
+	{
 		
 		//Flush method ---->it will erase the previous data on the report and create a new report
 		report.flush();
